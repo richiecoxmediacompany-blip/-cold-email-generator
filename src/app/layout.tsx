@@ -1,0 +1,27 @@
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
+
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+export const metadata: Metadata = {
+  title: "Cold Email Generator",
+  description:
+    "Generate personalized cold emails in seconds with AI. Enter your company details and target persona to create professional outreach emails.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+    </html>
+  );
+}
