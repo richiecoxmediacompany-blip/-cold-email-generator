@@ -1,10 +1,12 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
 
-const client = new Anthropic();
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   try {
+    const client = new Anthropic();
     const { companyName, offering, targetCompany, targetPersona } =
       await req.json();
 
